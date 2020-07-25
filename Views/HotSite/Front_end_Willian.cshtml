@@ -1,0 +1,117 @@
+@{
+  ViewBag.Title = "Willian";
+}
+<form class="ui form error">
+    <div class="estilo">
+        <div class="ui equal width form" >
+            <div class="fields">
+                <div class="field">
+                <label>Nome</label>
+                <input id="nome" data-validate="ativo" type="text" placeholder="Username" onblur="escreva()">
+                </div>
+
+                <div class="field">
+                <label>E-mail</label>
+                <input id="email" data-validate="email" type="email" placeholder="joe@schmoe.com" onblur="escreva()">
+                </div>
+
+                <div class="field">
+                <label>Telefone</label>
+                <input class="masked mask_phone" id="tell" data-validate="ativo3" placeholder="telefone" onblur="escreva()">
+                </div>
+            </div>
+        
+            <div class="field">
+                <label>Assunto</label>
+                <input id="ass" data-validate="ativo4" onblur="escreva()">
+            </div>
+            <div class="field">
+                <label>Mensagem</label>
+                <textarea id="msg" data-validate="ativo5" onblur="escreva()"></textarea>
+            </div>
+
+            
+            
+            <div class="ui submit button" id='salvar' onclick="session()">Enviar</div>
+            <div class="ui error message"></div>
+            
+        </div>
+    </div>
+</form>
+
+<div class="estilo" styles="float: left; width: 50%">
+    <h1>Nome:</h1>
+    <p id="id-nome"></p>
+    
+    <h1>E-mail:</h1>
+    <p id="id-email"></p>
+
+    <h1>Telefone:</h1>
+    <p id="id-tell"></p>
+
+    <h1>Assunto:</h1>
+    <p id="id-ass"></p>
+
+    <h1>Mensagem:</h1>
+    <p id="id-msg"></p>
+
+    <h1>sessionStorage ativo</h1>
+  
+</div>
+
+</div>
+/**/
+    <script>    
+        /* exibir informaçõe campo : valor */
+        function escreva(){
+            var nome = document.getElementById("nome").value;
+            document.getElementById("id-nome").innerHTML = nome;
+
+            sessionStorage.setItem('profissão', 'pedreiro');
+            console.log(sessionStorage.getItem('profissão'));
+            
+
+            var nome1 = document.getElementById("email").value;
+            document.getElementById("id-email").innerHTML = nome1;
+
+            var nome2 = document.getElementById("tell").value;
+            document.getElementById("id-tell").innerHTML = nome2;
+
+            var nome3 = document.getElementById("ass").value;
+            document.getElementById("id-ass").innerHTML = nome3;
+
+            var nome4 = document.getElementById("msg").value;
+            document.getElementById("id-msg").innerHTML = nome4;
+        }
+        /* validaão forms */
+        $('.ui.form')
+        .form({
+            fields: {
+                ativo     : 'empty',
+                ativo5 : 'empty',
+                ativo3 : 'minLength[9]',
+                ativo4 : 'empty',
+                email : 'email'
+            }
+        })
+        ;
+        /* session storage */
+        function session(){
+            sessionStorage.setItem("nome", nome.value);
+            sessionStorage.setItem("email", email.value);    
+            sessionStorage.setItem("telefone", tell.value);
+            sessionStorage.setItem("assunto", ass.value);
+            sessionStorage.setItem("mensagem", msg.value);
+            
+            alert("Itens adicionado.");
+            /**/
+        }
+       
+    </script>
+
+<!--
+
+views/HotSite
+assets/css
+
+-->

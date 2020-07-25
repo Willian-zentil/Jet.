@@ -39,6 +39,8 @@ require('./modules/mask');
 require('./modules/jquery-ui.min');
 //--------------------[ LazyLoad ]--------------------//
 require('../functions/lazy_load');
+//--------------------[ Willian ]--------------------//
+require('/functions/willian.js')
 
 //--------------------[ Start Document ]--------------------//
 $(document).ready(function(){
